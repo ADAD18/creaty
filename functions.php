@@ -48,9 +48,13 @@ function cre_setup_theme(){
 }
 add_action( 'after_setup_theme', 'cre_setup_theme' );
 
+/**
+ * Funcion para la creacion de la taxonomia y el Cpt
+ *
+ */
 function cre_cpt_tax() {
 
- 
+    //registro del CPT de producto
    if ( ! post_type_exists( 'producto' ) ) {
         register_post_type( 'producto' ,array(
             'labels' => array(
@@ -78,6 +82,8 @@ function cre_cpt_tax() {
         ));
     }
 
+    
+    //registro de la taxonomia de tipo-prodcuto
     if ( ! taxonomy_exists( 'tipo-producto' ) ) {
         register_taxonomy( 'tipo-producto', array( 'producto' ) , array(
             'labels' => array(
